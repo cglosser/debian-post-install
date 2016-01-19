@@ -41,25 +41,25 @@ dir="$(dirname "$0")"
 
 #----- Fancy Messages -----#
 show_error(){
-echo -e "\033[1;31m$@\033[m" 1>&2
+echo -ne "\033[1;31m$@\033[m" 1>&2
 }
 show_info(){
-echo -e "\033[1;32m$@\033[0m"
+echo -ne "\033[1;32m$@\033[0m"
 }
 show_warning(){
-echo -e "\033[1;33m$@\033[0m"
+echo -ne "\033[1;33m$@\033[0m"
 }
 show_question(){
-echo -e "\033[1;34m$@\033[0m"
+echo -ne "\033[1;34m$@\033[0m"
 }
 show_success(){
-echo -e "\033[1;35m$@\033[0m"
+echo -ne "\033[1;35m$@\033[0m"
 }
 show_header(){
-echo -e "\033[1;36m$@\033[0m"
+echo -ne "\033[1;36m$@\033[0m"
 }
 show_listitem(){
-echo -e "\033[0;37m$@\033[0m"
+echo -ne "\033[0;37m$@\033[0m"
 }
 
 # Main
@@ -92,6 +92,8 @@ function main {
 # Quit
 function quit {
     if (whiptail --title "Quit" --yesno "Are you sure you want quit?" 10 60) then
+        show_success "\nScript complete.\n"
+        echo "Thank you for using CHAOS!\n"
         exit 99
     else
         clear && main
