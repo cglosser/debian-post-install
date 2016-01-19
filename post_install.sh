@@ -1,8 +1,7 @@
 #!/bin/bash
-# -*- Mode: sh; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #
 # Authors:
-#   Sam Hewitt <hewittsamuel@gmail.com>
+#   Connor Glosser <glosser1@gmail.com>
 #
 # Description:
 #   A post-installation bash script for Ubuntu
@@ -25,19 +24,19 @@
 tabs 4
 clear
 
-#----- Import Functions -----#
+##----- Import Functions -----#
 
 dir="$(dirname "$0")"
 
 . $dir/functions/check
-. $dir/functions/cleanup
-. $dir/functions/codecs
-. $dir/functions/configure
-. $dir/functions/development
-. $dir/functions/favourites
-. $dir/functions/thirdparty
+#. $dir/functions/cleanup
+#. $dir/functions/codecs
+#. $dir/functions/configure
+#. $dir/functions/development
+#. $dir/functions/favourites
+#. $dir/functions/thirdparty
 . $dir/functions/update
-. $dir/functions/utilities
+#. $dir/functions/utilities
 
 #----- Fancy Messages -----#
 show_error(){
@@ -100,7 +99,7 @@ function quit {
     fi
 }
 
-#RUN
-check && main
+##RUN
+check #&& main
 
 #END OF SCRIPT
