@@ -82,9 +82,9 @@ function main {
      
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
-        clear && $MAIN
+        $MAIN
     else
-        clear && quit
+        quit
     fi
 }
 
