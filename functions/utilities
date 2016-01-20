@@ -7,19 +7,16 @@ UTILS="$dir/data/utilities.list"
 # Install Favourite System Utilities
 function utilities {
     if (eval `resize` && whiptail --title \
-        "Favourite System Utilities"  --yesno \
-        "Current list of favourite system utilities: \n\n$(cat $UTILS) \n\nProceed with installation?" \
+        "System Utilities"  --yesno \
+        "Current list of system utilities: \n\n$(cat $UTILS) \n\nProceed with installation?" \
         $LINES $COLUMNS $(( $LINES - 12 )) \
         --scrolltext ) then
-        show_info 'Installing...'
-        show_warning 'Requires root privileges'
+        show_info '\nInstalling...\n'
+        show_warning '(requires root privileges)\n'
         # Feel free to change the contents of 'utilities.list' in the data folder to whatever suits your preference.
-        sudo apt-get install -y --no-install-recommends $(cat $UTILS)
+        sudo aptitude install $(< $UTILS)
         # Done
-        show_success 'Done.'
+        show_success 'Utilities installed.\n'
         whiptail --title "Finished" --msgbox "Installation complete." 8 78
-        main
-    else
-        clear && main
     fi
 }
