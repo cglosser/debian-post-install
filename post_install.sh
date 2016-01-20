@@ -97,6 +97,10 @@ function quit {
 }
 
 ##RUN
-check #&& main
+clear && check
+while :
+do
+  main
+done
 
 #END OF SCRIPT
