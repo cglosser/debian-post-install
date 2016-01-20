@@ -29,6 +29,6 @@ function check {
         esac
     else
         sleep 1
-        show_info "all set.\n\n"
+        show_info "all set.\n"
     fi
 }
