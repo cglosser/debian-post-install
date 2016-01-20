@@ -4,7 +4,7 @@
 #   Connor Glosser <glosser1@gmail.com>
 #
 # Description:
-#   A post-installation bash script for Ubuntu
+#   A post-installation bash script for Debian-like systems
 #
 # Legal Preamble:
 #
@@ -33,7 +33,7 @@ dir="$(dirname "$0")"
 #. $dir/functions/codecs
 #. $dir/functions/configure
 #. $dir/functions/development
-#. $dir/functions/favourites
+. $dir/functions/favorites
 #. $dir/functions/thirdparty
 . $dir/functions/update
 #. $dir/functions/utilities
@@ -71,11 +71,8 @@ function main {
         --cancel-button "Quit" \
         $LINES $COLUMNS $(( $LINES - 12 )) \
         update      'Perform system update' \
-        favourites  'Install favourite applications' \
-        utilities   'Install favourite system utilities' \
-        development 'Install favourite development tools' \
-        codecs      'Install Ubuntu Restricted Extras' \
-        thirdparty  'Install third-party applications' \
+        favorites   'Install favorite applications' \
+        utilities   'Install system utilities' \
         configure   'Configure system' \
         cleanup     'Cleanup the system' \
         3>&1 1>&2 2>&3)
@@ -92,7 +89,7 @@ function main {
 function quit {
     if (whiptail --title "Quit" --yesno "Are you sure you want quit?" 10 60) then
         show_success "\nScript complete.\n"
-        echo "Thank you for using CHAOS!\n"
+        echo -e "Thank you for using CHAOS!\n"
         exit 99
     else
         clear && main
